@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: article
+          uri: http://localhost:8081
+          predicates:
+            - Path=/article/**
+        - id: comment
+          uri: http://localhost:8082
+          predicates:
+            - Path=/comment/**
+        - id: member
+          uri: http://localhost:8083
+          predicates:
+            - Path=/member/**
